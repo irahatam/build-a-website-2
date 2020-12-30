@@ -5,10 +5,24 @@ import React, { useState, useEffect, useMemo } from "react";
 import Header from "../components/Header";
 import WeatherImage from "../components/WeatherImage";
 
+import City from "../components/City";
+
 const weatherKey = `TODO`; // Your API Key here
 
 function Home() {
+<<<<<<< HEAD
   <div></div>;
+=======
+  // TODO
+  return (
+    // Container
+    <div className="flex flex-col h-screen bg-green-200">
+      <City cityName={"Tokyo"} temp={"10°C"} color={"bg-yellow-500"} />
+      <City cityName={"Jakarta"} temp={"24°C"} color={"bg-red-500"} />
+      <City cityName={"Bandung"} temp={"17°C"} color={"bg-blue-500"} />
+    </div>
+  );
+>>>>>>> afe6e7d3d95a9086c6a29753c3092e380e1992a0
 }
 
 export default Home;
