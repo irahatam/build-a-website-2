@@ -7,20 +7,20 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 */
 
-function WeatherImage({ weatherType }) {
-  switch (weatherType) {
-    case "TODO":
-      return <FontAwesomeIcon icon={TODO} />;
+// function WeatherImage({ weatherType }) {
+//   switch (weatherType) {
+//     case "TODO":
+//       return <FontAwesomeIcon icon={TODO} />;
 
-    case "TODO":
-      return <FontAwesomeIcon icon={TODO} />;
+//     case "TODO":
+//       return <FontAwesomeIcon icon={TODO} />;
 
-    case "TODO":
-      return <FontAwesomeIcon icon={TODO} />;
+//     case "TODO":
+//       return <FontAwesomeIcon icon={TODO} />;
 
-    default:
-      return <FontAwesomeIcon icon={TODO} />;
-  }
-}
+//     default:
+//       return <FontAwesomeIcon icon={TODO} />;
+//   }
+// }
 
 export default WeatherImage;
