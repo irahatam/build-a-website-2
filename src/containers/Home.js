@@ -10,9 +10,6 @@ import City from "../components/City";
 const weatherKey = `TODO`; // Your API Key here
 
 function Home() {
-<<<<<<< HEAD
-  <div></div>;
-=======
   // TODO
   return (
     // Container
@@ -22,7 +19,6 @@ function Home() {
       <City cityName={"Bandung"} temp={"17°C"} color={"bg-blue-500"} />
     </div>
   );
->>>>>>> afe6e7d3d95a9086c6a29753c3092e380e1992a0
 }
 
 export default Home;
