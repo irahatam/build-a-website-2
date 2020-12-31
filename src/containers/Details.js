@@ -12,7 +12,7 @@ import "../App.css";
 function Details() {
   const history = useHistory();
   const [weatherData, setWeatherData] = useState(null);
-  const [city, setCity] = useState("Jakarta");
+  const [city, setCity] = useState("");
 
   useEffect(() => {
     console.log(process.env.REACT_APP_WEATHER_KEY);
@@ -34,7 +34,11 @@ function Details() {
   useEffect(() => {
     const searchParams = history.location.search;
     const urlParams = new URLSearchParams(searchParams);
+<<<<<<< HEAD
     const city = urlParams.get("city");
+=======
+    const city = urlParams.get("name");
+>>>>>>> 2399c5560366510c79571270311c71425c446f4c
     if (city) {
       setCity(city);
     }
