@@ -12,6 +12,24 @@ function Home() {
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState("Jakarta");
 
+  const [cities, setCities] = useState([
+    {
+      name: "Jakarta",
+      currentTemp: "0",
+      color: "bg-yellow-500",
+    },
+    {
+      name: "Bandung",
+      currentTemp: "0",
+      color: "bg-red-500",
+    },
+    {
+      name: "Malang",
+      currentTemp: "0",
+      color: "bg-blue-500",
+    },
+  ]);
+
   useEffect(() => {
     console.log(process.env.REACT_APP_WEATHER_KEY);
     axios
@@ -54,9 +72,9 @@ function Home() {
   return (
     // Container
     <div className="flex flex-col h-screen bg-green-200">
-      <City cityName={city} temp={currentTemp} color={"bg-yellow-500"} />
-      {/* <City cityName={city} temp={currentTemp} color={"bg-red-500"} />
-      <City cityName={city} temp={currentTemp} color={"bg-blue-500"} /> */}
+      {cities.map((item, index) => (
+        <City cityName={item.name} temp={item.currentTemp} color={item.color} />
+      ))}
     </div>
   );
 }

@@ -10,7 +10,7 @@ import axios from "axios";
 function Details() {
   const history = useHistory();
   const [weatherData, setWeatherData] = useState(null);
-  const [city, setCity] = useState("Jakarta");
+  const [city, setCity] = useState("");
 
   useEffect(() => {
     console.log(process.env.REACT_APP_WEATHER_KEY);
@@ -32,7 +32,7 @@ function Details() {
   useEffect(() => {
     const searchParams = history.location.search;
     const urlParams = new URLSearchParams(searchParams);
-    const cityName = urlParams.get("name");
+    const city = urlParams.get("name");
     if (city) {
       setCity(city);
     }
