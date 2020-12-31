@@ -7,7 +7,7 @@ import WeatherImage from "../components/WeatherImage";
 
 import City from "../components/City";
 
-console.log(process.env.REACT_APP_WEATHER_API);
+const weatherKey = `a9fa22fcb9047ac97c06f01e31923dcf`;
 
 function Home() {
   const history = useHistory();
@@ -17,7 +17,7 @@ function Home() {
   useEffect(() => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${weatherKey}`
       )
       .then(function (response) {
         // Successful request
@@ -48,9 +48,6 @@ function Home() {
       currentTemp,
     };
   }, [weatherData]);
-
-  console.log("weatherData", weatherData);
-  console.log("currentTemp", currentTemp);
 
   return (
     // Container
