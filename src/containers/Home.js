@@ -7,11 +7,6 @@ import WeatherImage from "../components/WeatherImage";
 
 import City from "../components/City";
 
-<<<<<<< HEAD
-const weatherKey = `a9fa22fcb9047ac97c06f01e31923dcf`;
-
-=======
->>>>>>> 5d49156432fbf1ada9f2119cd21f2e2a9413a4c2
 function Home() {
   const history = useHistory();
   const [weatherData, setWeatherData] = useState(null);
@@ -21,11 +16,7 @@ function Home() {
     console.log(process.env.REACT_APP_WEATHER_KEY);
     axios
       .get(
-<<<<<<< HEAD
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${weatherKey}`
-=======
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_KEY}`
->>>>>>> 5d49156432fbf1ada9f2119cd21f2e2a9413a4c2
       )
       .then(function (response) {
         // Successful request
