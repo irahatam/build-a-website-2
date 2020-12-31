@@ -34,11 +34,7 @@ function Details() {
   useEffect(() => {
     const searchParams = history.location.search;
     const urlParams = new URLSearchParams(searchParams);
-<<<<<<< HEAD
-    const city = urlParams.get("city");
-=======
     const city = urlParams.get("name");
->>>>>>> 2399c5560366510c79571270311c71425c446f4c
     if (city) {
       setCity(city);
     }
@@ -88,7 +84,8 @@ function Details() {
       <div className="p-8 text-2xl font-bold">Weather in {city}</div>
 
       <div className="flex flex-col p-8 m-4 border-2 rounded-md border-gray-700 items-center">
-        <WeatherImage weatherType={weatherType} />
+        <WeatherImage weatherType={weatherType} className="text-xl" />
+        <div>{weatherType}</div>
         <div>Current Temperature : {currentTemp}</div>
       </div>
 
