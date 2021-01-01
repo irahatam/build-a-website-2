@@ -1,14 +1,9 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 
 import City from "../components/City";
 
 function Home() {
-  const history = useHistory();
-  const [weatherData, setWeatherData] = useState(null);
-  const [city, setCity] = useState("Jakarta");
-
   const [cities, setCities] = useState([
     {
       name: "Jakarta",
@@ -28,14 +23,20 @@ function Home() {
       weatherType: "",
       color: "bg-blue-500",
     },
+    {
+      name: "Taoyuan",
+      currentTemp: "0",
+      weatherType: "",
+      color: "bg-blue-500",
+    },
     // {
-    //   name: "Taoyuan",
+    //   name: "New York",
     //   currentTemp: "0",
     //   weatherType: "",
     //   color: "bg-blue-500",
     // },
     // {
-    //   name: "New York",
+    //   name: "Tokyo",
     //   currentTemp: "0",
     //   weatherType: "",
     //   color: "bg-blue-500",
@@ -43,44 +44,10 @@ function Home() {
   ]);
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_KEY}`
-      )
-      .then(function (response) {
-        // Successful request
-        const weather = response.data;
-        setWeatherData(weather);
-      })
-      .catch(function (error) {
-        // The best practice of coding is to not use console.log
-        console.warn(error);
-      });
-  }, [city]);
-
-  useEffect(() => {
-    const searchParams = history.location.search;
-    const urlParams = new URLSearchParams(searchParams);
-    const city = urlParams.get("city");
-    if (city) {
-      setCity(city);
-    }
-  }, [history]);
-
-  const { currentTemp } = useMemo(() => {
-    let currentTemp = "";
-    if (weatherData) {
-      currentTemp = `${Math.round(weatherData.main.temp)}°C`;
-    }
-    return {
-      currentTemp,
-    };
-  }, [weatherData]);
-
-  useEffect(() => {
     updateAllWeatherData();
   }, []);
 
+  // Fetch the weather data for 1 city
   async function fetchWeatherData(cityName) {
     const res = await axios
       .get(
@@ -99,6 +66,7 @@ function Home() {
     return res;
   }
 
+  // update the list data
   async function updateAllWeatherData(params) {
     cities.forEach(function (citiesItems, index) {
       let weatherData = {};
@@ -106,7 +74,6 @@ function Home() {
 
       fetchWeatherData(citiesItems.name).then((res) => {
         weatherData = res;
-        console.log(weatherData);
 
         newCities[index].currentTemp = weatherData.main.temp;
         newCities[index].weatherType = weatherData.weather[0].main;

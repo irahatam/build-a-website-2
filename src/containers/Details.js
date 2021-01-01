@@ -4,11 +4,6 @@ import axios from "axios";
 import WeatherImage from "../components/WeatherImage";
 import "../App.css";
 
-// TODO
-// - implement API
-// - add props to details screen
-// - style the details screen
-
 function Details() {
   const history = useHistory();
   const [weatherData, setWeatherData] = useState(null);
